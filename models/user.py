@@ -13,7 +13,7 @@ class UserModel(db.Model):
     username = db.Column(db.String(80))
     password = db.Column(db.String(80))
 
-    # establish relationship with ItemModel
+    # establish relationship with the child model i.e. ScoreModel
     scores = db.relationship('ScoreModel', lazy='dynamic')
 
     # initializing user class

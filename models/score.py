@@ -1,16 +1,18 @@
 from db import db
+from resources.user import UserModel
 
 
 class ScoreModel(db.Model):
     __tablename__ = 'scores'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     difficulty = db.Column(db.Integer)
     num_tries = db.Column(db.Integer)
 
-    # sees that we have store_id, below essentiall adds a reference
-    store = db.relationship('ScoreModel')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    # sees that we have usere_id, below adds a reference to users table via the model
+    user = db.relationship('UserModel')
 
     def __init__(self, user_id, difficulty, num_tries):
         self.user_id = user_id
@@ -30,8 +32,8 @@ class ScoreModel(db.Model):
         return cls.query.filter_by(user_id=user_id)
 
     @classmethod
-    def find_by_username(cls, username):
-        pass
+    def find_scores_by_username(cls, username):
+        return cls.query.join(UserModel).filter_by(username=username).all()
 
     def save_to_db(self):
         db.session.add(self)
@@ -40,16 +42,3 @@ class ScoreModel(db.Model):
     def delete_from_db(self):
         db.session.delete(self)
         db.session.commit()
-
-
-class ScoreList(Resource):
-    def get(self):
-
-        try:
-            users = {'scores': [score.json()
-                                for score in ScoreModel.query.all()]}
-        except:
-            return {"message": "An error occurred finding the score list"}, 500
-        if users:
-            return users
-        return {'message': 'Score List not found'}, 404

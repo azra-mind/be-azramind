@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restful import Api, Resource
 # from flask_jwt import JWT
 from resources.user import User, UserList
+from resources.score import Score, ScoreList, UserScores
 # make sure you import all resources for tables you want built:
 # from security import authenticate, identity
 from datetime import timedelta
@@ -31,6 +32,8 @@ class Hello(Resource):
 api.add_resource(Hello, '/')
 api.add_resource(User, '/register')
 api.add_resource(UserList, '/users')
+api.add_resource(Score, '/score')
+api.add_resource(UserScores, '/<username>/scores/')
 
 
 if __name__ == '__main__':
