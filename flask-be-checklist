@@ -7,3 +7,5 @@
 TO DO:
 - understand what each app.config variable does
 - take all the config vars and put them in a .ENV file. Figure out how to do that in Python
+- add DATE to the scores
+- learn how to limit difficulty to just 1,2,3
