@@ -42,14 +42,14 @@ class UserScores(Resource):
         try:
             # scores = {'scores': [score.json()
             #                      for score in ScoreModel.find_scores_by_user_id(user_id)]}
-
             scores = {'scores': [score.json()
                                  for score in ScoreModel.find_scores_by_username(username)]}
 
         except:
             return {"message": "An error occurred searching for that user_id"}, 500
 
-        if scores:
+        if len(scores['scores']) > 0:
+            print(scores['scores'].length)
             return scores, 200
 
         return {'message': 'scores not found'}, 404
