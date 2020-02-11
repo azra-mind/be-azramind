@@ -6,7 +6,7 @@ from resources.score import Score, ScoreList, UserScores
 # make sure you import all resources for tables you want built:
 # from security import authenticate, identity
 from datetime import timedelta
-from db import db
+# from db import db
 
 
 # initiating the flask app
