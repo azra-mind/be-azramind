@@ -30,7 +30,7 @@ class Hello(Resource):
 
 
 api.add_resource(Hello, '/')
-api.add_resource(User, '/register')
+api.add_resource(User, '/user')
 api.add_resource(UserList, '/users')
 api.add_resource(Score, '/score')
 api.add_resource(UserScores, '/<username>/scores/')

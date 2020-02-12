@@ -9,3 +9,31 @@ TO DO:
 - take all the config vars and put them in a .ENV file. Figure out how to do that in Python
 - add DATE to the scores
 - learn how to limit difficulty to just 1,2,3
+
+
+MUST FIX:
+- Get full functionality working
+- write the Read.ME
+- integrate date-time & sorting by best score
+- integrate with Postgres
+- fix username inputs into the DB. Make sure there are no leading/trailing white spaces, not case sensitive etc.
+- make resulting outputs pretty
+- clean up the file, break things up into smaller functions etc. (can do after READ.ME)
+- Add unit tests
+
+
+BE READY TO BUILD THE FOLLOWING IN INTERVIEW:
+- add user login
+
+CONTINUE BUILDING ON THE PROJECT ON A SEPERATE BRANCH - STAGING. 
+
+
+cleanup ideas: 
+- input text file
+- base URL
+
+Other questions you should know answers to:
+- Systems Design etc.
+- JSON - why do we use it?
+- HTTP protocol
+- WHY did I use Rest API? What is it good for?

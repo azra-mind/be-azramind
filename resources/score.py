@@ -18,7 +18,7 @@ class Score(Resource):
     parser.add_argument('num_tries',
                         type=int,
                         required=True,
-                        help="difficulty level cannot be left blank!"
+                        help="num_tries cannot be left blank!"
                         )
 
     @classmethod
@@ -49,14 +49,13 @@ class UserScores(Resource):
             return {"message": "An error occurred searching for that user_id"}, 500
 
         if len(scores['scores']) > 0:
-            print(scores['scores'].length)
             return scores, 200
 
         return {'message': 'scores not found'}, 404
 
 
 class ScoreList(Resource):
-    # GET /scores
+    # GET all /scores
     def get(self):
         try:
             scores = {'scores': [score.json()
