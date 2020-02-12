@@ -30,18 +30,22 @@ class User(Resource):
         user = UserModel(data['username'], data['password'])
         user.save_to_db()
 
-        return {"message": f"username {data['username']} created successfully."}, 201
+        return user.json_username(), 201
 
     # GET /username
-    def get(self, username):
+    @classmethod
+    def get(cls):
+        data = cls.parser.parse_args()
+        username = data['username']
+        print(username)
         try:
-            user = UserModel.find_by_name(username)
+            user = UserModel.find_by_username(username)
         except:
-            return {"message": "An error occurred searching for that username"}, 500
+            return {"message": f"An error occurred searching for the username {username}"}, 500
 
         if user:
             return user.json_username()
-        return {'message': 'username not found'}, 404
+        return {'message': f'username {username} not found'}, 404
 
 
 # get a list of all users
