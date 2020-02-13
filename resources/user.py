@@ -32,12 +32,12 @@ class User(Resource):
 
         return user.json_username(), 201
 
-    # GET /username
+    # GET /user
     @classmethod
     def get(cls):
         data = cls.parser.parse_args()
         username = data['username']
-        print(username)
+
         try:
             user = UserModel.find_by_username(username)
         except:
