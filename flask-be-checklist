@@ -12,18 +12,32 @@ TO DO:
 
 
 MUST FIX:
-- Get full functionality working
-- write the Read.ME
-- integrate date-time & sorting by best score
-- integrate with Postgres
+- Validate guesses during game play -[done]
+- Add a dictionary of guesses with guess, number correct, number & location correct - [DONE]
+- fix the difficulty level to be the number of digits [DONE]
+- integrate date-time
+- fix the results to currently exclude difficulty level
+- integrate with Postgres (learn how to do a .ENV etc)
+- write the full read.me
 - fix username inputs into the DB. Make sure there are no leading/trailing white spaces, not case sensitive etc.
-- make resulting outputs pretty
-- clean up the file, break things up into smaller functions etc. (can do after READ.ME)
+- make resulting outputs prettier
+
+- clean up the file, break things up into smaller functions etc. 
+
 - Add unit tests
 
 
 BE READY TO BUILD THE FOLLOWING IN INTERVIEW:
-- add user login
+- add authorization to the user login
+- max score by username
+- 
+- add username to the end of the game if they want to save score
+- difficulty level
+    - know how to add difficulty to the game logic
+    - make an outline of all the things you would change. Check-out a branch and add this next
+    - know how to add another table and look up/join with the current table
+- explain your project very clearly
+
 
 CONTINUE BUILDING ON THE PROJECT ON A SEPERATE BRANCH - STAGING. 
 
@@ -32,8 +46,9 @@ cleanup ideas:
 - input text file
 - base URL
 
-Other questions you should know answers to:
+Other questions you should know answers to for interview:
 - Systems Design etc.
 - JSON - why do we use it?
 - HTTP protocol
 - WHY did I use Rest API? What is it good for?
+- MVC and what parts are what in my APP
