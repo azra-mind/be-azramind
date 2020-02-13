@@ -21,6 +21,7 @@ class Score(Resource):
                         help="num_tries cannot be left blank!"
                         )
 
+# POST /score
     @classmethod
     def post(cls):
         data = cls.parser.parse_args()
@@ -38,10 +39,10 @@ class Score(Resource):
 
 class UserScores(Resource):
 
+    # GET /<username>/score
     def get(self, username):
         try:
-            # scores = {'scores': [score.json()
-            #                      for score in ScoreModel.find_scores_by_user_id(user_id)]}
+
             scores = {'scores': [score.json()
                                  for score in ScoreModel.find_scores_by_username(username)]}
 
