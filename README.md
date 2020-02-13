@@ -1,8 +1,8 @@
 Azramind is a command-line game modeled after the popular board game Mastermind. It is written in Python/Flask with a Postgres database. The game-play repository can be found here: [Link to Azramind Game Play](https://github.com/azra-mind/game-azramind)
 
-[Project URL](https://github.com/azra-mind)
-[Game Play Repo](https://github.com/azra-mind/game-azramind)
-[Link to Deployed API](https://azramind.herokuapp.com/)
+- [Project URL](https://github.com/azra-mind)
+- [Game Play Repo](https://github.com/azra-mind/game-azramind)
+- [Link to Deployed API](https://azramind.herokuapp.com/)
 
 # API Documentation
 
@@ -26,7 +26,7 @@ Azramind is a command-line game modeled after the popular board game Mastermind.
 
 ## Data Model
 
-## `users` table
+### `users` table
 
 ```
 {
@@ -36,7 +36,7 @@ Azramind is a command-line game modeled after the popular board game Mastermind.
 }
 ```
 
-## `scores` table
+### `scores` table
 
 ```
 {
@@ -47,3 +47,19 @@ Azramind is a command-line game modeled after the popular board game Mastermind.
         num_tries: INT
     }
 ```
+
+## CODE STRUCTURE:
+
+### app.py
+
+- contains the the flask app, app configurations, and resource end-points
+
+### models directory
+
+- `user.py` has the user model
+- `score.py` has the score model that keeps track of game scores.
+
+### resources directory
+
+- `user.py` contains the api resources that pair with the `user model`
+- `score.py` contains the api resources that pair with the `score model`
