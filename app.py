@@ -33,7 +33,8 @@ api.add_resource(Hello, '/')
 api.add_resource(User, '/user')
 api.add_resource(UserList, '/users')
 api.add_resource(Score, '/score')
-api.add_resource(UserScores, '/<username>/scores/')
+api.add_resource(UserScores, '/<username>/scores')
+api.add_resource(ScoreList, '/scores')
 
 
 if __name__ == '__main__':

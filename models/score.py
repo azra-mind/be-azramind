@@ -1,14 +1,15 @@
 from db import db
 from resources.user import UserModel
+from datetime import datetime
 
 
 class ScoreModel(db.Model):
     __tablename__ = 'scores'
-
     id = db.Column(db.Integer, primary_key=True)
+    date_time = db.Column(db.DateTime, default=datetime.now)
+    # stores # of digits player had to guess
     difficulty = db.Column(db.Integer)
     num_tries = db.Column(db.Integer)
-
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # sees that we have usere_id, below adds a reference to users table via the model
@@ -22,6 +23,7 @@ class ScoreModel(db.Model):
     def json(self):
         # need the .all() when lazy=dynamic turns self.items into query builder
         return {'id': self.id,
+                'date_time': str(self.date_time)[:19],
                 'user_id': self.user_id,
                 'difficulty': self.difficulty,
                 'num_tries': self.num_tries
