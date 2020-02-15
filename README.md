@@ -66,7 +66,7 @@ Azramind is a command-line game modeled after the popular board game Mastermind.
 
 ## HOW I APPROACHED BUILDING THIS GAME:
 
-I built this game in Python because it is my absolute favorite language to code in out of the ones I've tried thus far (Ruby, Javascript, Python). In addition, I really enjoy building APIs and thought this would be a great way for me to learn how to do so using Python.
+I built this game in Python because it is my favorite language to code in out of the ones I've tried thus far (Ruby, Javascript, Python). In addition, I really enjoy building APIs and thought this would be a great way for me to learn how to do so using Python.
 
 While I knew how to bulid APIs in Node.js, and knew enough Python to solve CS coding challenge style problems in Algorithms, Datastructures, I had never built a backend utilizing Object Oriented Programming, nor had I ever built a REST API from scratch using a Python framework such as Flask or Django prior to building this project. I decided to use this challenge as a forcing function to teach myself something that I'd been meaning to learn anyway: How to build a backend and RESTful API in Flask. I chose Flask over Django because it is a more light-weight framework that I could learn and deploy quickly, yet it scales well since companies like Netflix, Reddit, an Lyft use it.
 
