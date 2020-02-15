@@ -2,22 +2,24 @@ import os
 
 from flask import Flask
 from flask_restful import Api, Resource
-# from flask_jwt import JWT
+
 from resources.user import User, UserList
 from resources.score import Score, ScoreList, UserScores
 # make sure you import all resources for tables you want built:
-# from security import authenticate, identity
 from datetime import timedelta
-# from db import db
 
 
 # initiating the flask app
 app = Flask(__name__)
 
 # configs:
-
+# shows more error messages
 app.config['PROPAGATE_EXCEPTIONS'] = True
-app.config['DEBUG'] = True
+
+# for development purposes debug = True
+app.config['DEBUG'] = os.environ.get(
+    'DEBUG', True)
+
 # SQL alchemy config, connection to the DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL', "sqlite:///data.db")

@@ -6,7 +6,7 @@ import random
 
 class UserModel(db.Model):
 
-    # tell SQLAlchemy where the model will be stored
+    # tell SQLAlchemy the tablename
     __tablename__ = 'users'
 
     # define the schema for the users table
@@ -15,6 +15,7 @@ class UserModel(db.Model):
     password = db.Column(db.String(80))
 
     # establish relationship with the child model i.e. ScoreModel
+    # lazy = dynamic returns the query object so it can be further sliced (.eg .all(), .first())
     scores = db.relationship('ScoreModel', lazy='dynamic')
 
     # initializing user class

@@ -12,7 +12,7 @@ class ScoreModel(db.Model):
     num_tries = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    # sees that we have usere_id, below adds a reference to users table via the model
+    # sees that we have user_id as foreign key, below adds a reference to users table via the model
     user = db.relationship('UserModel')
 
     def __init__(self, user_id, difficulty, num_tries):
@@ -21,7 +21,6 @@ class ScoreModel(db.Model):
         self.num_tries = num_tries
 
     def json(self):
-        # need the .all() when lazy=dynamic turns self.items into query builder
         return {'id': self.id,
                 'date_time': str(self.date_time)[:19],
                 'user_id': self.user_id,
@@ -34,6 +33,7 @@ class ScoreModel(db.Model):
         return cls.query.filter_by(user_id=user_id)
 
     @classmethod
+    # need the .all() when doing join cuz of lazy='dynamic' allows for more flexible querying
     def find_scores_by_username(cls, username):
         return cls.query.join(UserModel).filter_by(username=username).all()
 
