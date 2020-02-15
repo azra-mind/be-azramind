@@ -1,4 +1,5 @@
 from db import db
+import random
 
 # each model will be an extension of db.Model class
 
@@ -17,14 +18,16 @@ class UserModel(db.Model):
     scores = db.relationship('ScoreModel', lazy='dynamic')
 
     # initializing user class
-    def __init__(self, username, password="Superpass01!"):
+    def __init__(self, username, password=f"Super{random.randrange(511, 11571)}"):
         self.username = username
         self.password = password
 
+    # find user by id
     @classmethod
     def find_by_username(cls, username):
         return cls.query.filter_by(username=username).first()
 
+    # find user by id
     @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()
