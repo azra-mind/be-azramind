@@ -43,8 +43,8 @@ class UserScores(Resource):
     def get(self, username):
         try:
 
-            scores = {'scores': [score.json()
-                                 for score in ScoreModel.find_scores_by_username(username)]}
+            scores = {'scores': [
+                score.json() for score in ScoreModel.find_scores_by_username(username)]}
 
         except:
             return {"message": "An error occurred searching for that user_id"}, 500
