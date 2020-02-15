@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask
 from flask_restful import Api, Resource
 
@@ -16,13 +15,15 @@ app = Flask(__name__)
 # shows more error messages
 app.config['PROPAGATE_EXCEPTIONS'] = True
 
-# for development purposes debug = True
+# for development purposes debug = True, set to false in production
 app.config['DEBUG'] = os.environ.get(
     'DEBUG', True)
 
 # SQL alchemy config, connection to the DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL', "sqlite:///data.db")
+
+# sqlalchemy event notfication system. Don't need it here, set to False
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # build the basic api
@@ -44,6 +45,7 @@ api.add_resource(ScoreList, '/scores')
 
 if __name__ == '__main__':
     from db import db
+
     db.init_app(app)
 
     if app.config['DEBUG']:
