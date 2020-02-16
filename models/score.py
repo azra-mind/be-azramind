@@ -7,8 +7,7 @@ class ScoreModel(db.Model):
     __tablename__ = 'scores'
     id = db.Column(db.Integer, primary_key=True)
     date_time = db.Column(db.DateTime, default=datetime.now)
-    # stores # of digits player had to guess
-    difficulty = db.Column(db.Integer)
+    difficulty = db.Column(db.Integer)  # of digits in the code
     num_tries = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 

@@ -1,7 +1,6 @@
 import os
 from flask import Flask
 from flask_restful import Api, Resource
-
 from resources.user import User, UserList
 from resources.score import Score, ScoreList, UserScores
 # make sure you import all resources for tables you want built:
