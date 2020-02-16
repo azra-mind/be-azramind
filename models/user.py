@@ -11,7 +11,7 @@ class UserModel(db.Model):
 
     # define the schema for the users table
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80))
+    username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(80))
 
     # establish relationship with the child model i.e. ScoreModel

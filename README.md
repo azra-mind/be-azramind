@@ -79,10 +79,13 @@ I plan to continue working on this project to build upon my knowledge.
 #### Game Play Interface
 
 - Add the ability for the player to configure difficult levels
-- Build out a frontend in React.js
+- Add the ability for the player to configure difficult levels
+- better error handling for no internet connection
+- Build out a frontend
 
 #### Backend
 
 - Add unit tests to the backend repo
 - Add user authorization (login/password)
 - Add a lookup table for difficulty levels (easy/medium/hard)
+- More granular error handling for server errors
