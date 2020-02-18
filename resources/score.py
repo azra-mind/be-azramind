@@ -59,8 +59,8 @@ class ScoreList(Resource):
     # GET all /scores
     def get(self):
         try:
-            scores = {'scores': [score.json()
-                                 for score in ScoreModel.query.all()]}
+            scores = {'scores': [score
+                                 for score in ScoreModel.query.order_by(tries).all()]}
         except:
             return {"message": "An error occurred finding the score list"}, 500
         if scores:

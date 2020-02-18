@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style type="text/css">
+      .scores {
+        display: flex;
+        width: 50%;
+        border: red 1px solid;
+        justify-content: space-around;
+        flex-direction: column;
+      }
+      .score-box {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scores">
+      {% if scores %} {% for score in scores %}
+      <div class="score-box">
+        <div>
+          id: {{score.id}}
+        </div>
+        <div>
+          date: {{score.date_time}}
+        </div>
+        <div>
+          tries:{{score.num_tries}}
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <div>
+        scores not found
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Api, Resource
 from resources.user import User, UserList
 from resources.score import Score, ScoreList, UserScores
@@ -53,4 +53,4 @@ if __name__ == '__main__':
         def create_tables():
             db.create_all()
 
-    app.run(port=5000)
+    app.run(port=5001)

@@ -44,7 +44,7 @@ class User(Resource):
             return {"message": f"An error occurred searching for the username {username}"}, 500
 
         if user:
-            return user.json_username()
+            return user.json()
         return {'message': f'username {username} not found'}, 404
 
 
@@ -53,7 +53,7 @@ class UserList(Resource):
     def get(self):
 
         try:
-            users = {'users': [user.json_username()
+            users = {'users': [user.json()
                                for user in UserModel.query.all()]}
         except:
             return {"message": "An error occurred finding the user list"}, 500
