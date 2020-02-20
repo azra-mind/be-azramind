@@ -9,6 +9,7 @@ from datetime import timedelta
 
 # initiating the flask app
 app = Flask(__name__)
+api = Api(app)
 
 # configs:
 # shows more error messages

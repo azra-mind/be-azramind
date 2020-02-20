@@ -23,9 +23,11 @@ class User(Resource):
     @classmethod
     def post(cls):
         data = cls.parser.parse_args()
+        user_existing = UserModel.find_by_username(data['username'])
 
-        if UserModel.find_by_username(data['username']):
-            return {"message": "A user with that username already exists"}, 400
+        if user_existing:
+            return {"message": f"A user with {data['username']} already exists"}, 400
+            # return user_existing.json_username(), 201
 
         user = UserModel(data['username'], data['password'])
         user.save_to_db()

@@ -48,6 +48,7 @@ class UserScores(Resource):
 
         except:
             return {"message": "An error occurred searching for that user_id"}, 500
+            # 500 you never show to the client, even if server is down, should be a 400 error. Never expose 500 to the client
 
         if len(scores['scores']) > 0:
             return scores, 200
